@@ -55,7 +55,7 @@
                                 {% if request.session.donor_email %}
                                     <li><a href="{% url 'ibd:welcome' %}">My Profile</a></li>
                                 {% else %}
-                                    <li><a href="{% url 'login' %}">Donors Login</a></li>
+                                    <li><a href="{% url 'ibd:login' %}">Donors Login</a></li>
                                 {% endif %}
                                 <li class="active"><a href="{% url 'ibd:unsubscribe' %}">Unsubscribe</a></li>
                                 <li><a href="{% url 'ibd:forgetpwd' %}">Forgot Password</a></li>

@@ -185,6 +185,8 @@ def inthenews(request):
 def donorsfaqs(request):
     return render(request, 'ibd/donorsfaqs.html')
 
+def login(request):
+    return render(request, 'ibd/login.html')
 
 def logout(request):
     try:

@@ -13,7 +13,7 @@ urlpatterns = [
     path('donordetail/<pk>/', views.DonorDetail.as_view()),
     path('adddonor/', views.AddDonor.as_view()),
     path('updatedonor/<pk>/', views.UpdateDonor.as_view()),
-    #path('login/', views.login, name='login'),
+    path('login/', views.login, name='login'),
     path('unsubscribe/', views.unsubscribe, name='unsubscribe'),
     path('forgetpwd/', views.forgetpwd, name='forgetpwd'),
     path('poster/', views.poster, name='poster'),
