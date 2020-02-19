@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Indian Blood Donors</title>
+        <link href="http://www.indianblooddonors.com/images/fav.png" rel="shortcut icon">
+
+        <!-- Bootstrap -->
+        <link href="http://www.indianblooddonors.com/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="http://www.indianblooddonors.com/fonts/css/font-awesome.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+        <link href="http://www.indianblooddonors.com/css/mystyle.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://www.indianblooddonors.com/styles.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="http://www.indianblooddonors.com/script.js"></script>
+        <script src="http://www.indianblooddonors.com/js/crawler.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container-fluid bg">
+            <div class="container shadow bg1">
+                <div class="row topbg">
+                    <div class="col-md-6"> Need Blood? Call: 07966772377 </div>
+                    <div class="col-md-6" align="right"> Download our Apps to Contact Donors </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"> <img src="http://www.indianblooddonors.com/images/logo.png" class="img-responsive"  alt=""/> </div>
+                    <div class="col-md-6" align="right">
+                        <ul class="list-inline" style="padding-top:25px">
+                            <li><i class="fa fa-apple fa-2x" style="color:#000"></i></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.ibd.blooddonorapp&hl=en" target="_blank"><i class="fa fa-android fa-2x" style="color:#090"></i></a></li>
+                            <li><i class="fa fa-windows fa-2x"  style="color:#39F"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row menubg">
+                    <div class="col-md-12">
+                        <div id='cssmenu'>
+                            <ul>
+                                <li  ><a  href="/index">Home</a></li>
+                                {% if request.session.donor_email %}
+                                    <li><a href="{% url 'ibd:welcome' %}">My Profile</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'login' %}">Donors Login</a></li>
+                                {% endif %}
+                                <li><a href="{% url 'ibd:unsubscribe' %}">Unsubscribe</a></li>
+                                <li><a href="{% url 'ibd:forgetpwd' %}">Forgot Password</a></li>
+                                <li ><a href="{% url 'ibd:poster' %}">Paste our Posters</a></li>
+                                <li class="active"><a href="{% url 'ibd:privacypolicy' %}">Privacy Policy</a></li>
+                                <li><a href='https://www.facebook.com/IndianBloodDonors'>Facebook</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+      <div class="row sliderbg mh-600 ">
+      <div class="col-md-12">
+      <p>Indianblooddonors.com is a helpline which functions with the sole aim to promote and spread awareness about blood donation and connects needy patients with blood donors.</p>
+      <h2>Contacting Blood Donors</h2>
+      <p>The users need to utilise the Donors name and Telephone number provided via IVRS, SMS and Android and Windows APP and contact the donor for blood donation.<br/>The details of the donors are given only to facilitate the users for contacting them when in need of blood in case of any emergency. <br/>Indianblooddonors.com is not responsible for unwillingness of the donors to donate blood.</p>
+
+      <h2>Content</h2>
+
+
+       <div class="list-group">
+            <a href="#" class="list-group-item active lst">
+             Content provided through the IVRS, SMS and Mobile APP.
+            </a>
+            <a href="#" class="list-group-item">Is provided for information purposes only.</a>
+            <a href="#" class="list-group-item">Is not shared with third parties.</a>
+            <a href="#" class="list-group-item">The donor information available on the website is made available to us by the donors and its purely the donor's right to continue or to withdraw any information available at any point of time.</a>
+            <a href="#" class="list-group-item">We are not responsible for any inaccuracy in the information available on the website.</a>
+            <a href="#" class="list-group-item">We are not responsible for any misuse of contact information given to users via IVRS, SMS and Mobile Apps. If you feel that your contact details are being misused then contact us on info@indianblooddonors.com .</a>
+          </div>
+
+          <h2>Mobile Number</h2>
+      <p>Every search on Indianblooddonors.com via IVRS, SMS and Mobile apps is mapped. We store the Mobile Numbers , Landline number of the people who search for donors through IVRS, SMS and Mobile Apps.</p>
+
+      <h2>Indianblooddonors.com Rights</h2>
+      <p>Indianblooddonors.com reserves the right to change, modify or discontinue any aspect of the Website or the IVRS, SMS and Mobile Apps at any time, including any information or its contents or features.<br/>Indianblooddonors.com reserves the right to collect, analyze and disseminate the patterns of usage of the Website by all its Users.</p>
+
+      </div>
+      </div>
+<div class="row ftopbg" style="line-height:1.8; text-align:justify; color:#ABADAE">
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>TECHNOLOGY PARTNERS</strong></p>
+                        <p> <a href="https://www.awaaz.de/" target="_blank">Awaaz De</a></p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>CONNECTIONS MADE</strong></p>
+
+                        <p>12436 Blood Donors Registered</p>
+                        <p>151682 Request Served Till Date</p>
+                        <p>706 Connections made in last 30 Days</p>
+                        <p>3 Donors Consented to Donate</p>
+                        <p>4 Donors Refused to Donate</p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>OUR OTHER INITIATIVES</strong></p>
+                        <!--<p>Privacy Policy</p>
+                        <p> Terms &amp; Conditions</p>
+                        <p> Disclaimer</p>
+                        <p> Cancellation &amp; Refund</p>
+                        <p> Others</p>
+                        --><p><a target="_blank" href='http://Plateletdonors.org'>Platelet Donors</a></p>
+                        <p><a target="_blank" href="http://www.sevakitchen.org">Seva Kitchen</a></p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>CONTACT US</strong></p>
+                        <p><strong>Address:</strong></p>
+                        <p> Indian Blood Donors <br>
+                            127, New Colony,<br>
+                            Nagpur - 440001,<br>
+                            Maharashtra (India). </p>
+                        <p><strong>Email-id:</strong> info@indianblooddonors.com</p>
+                    </div>
+                </div>
+                <div class="row fbottompbg" style="color:#666">
+                    <div class="col-md-6"> &copy 2020  Indian Blood Donors. All right reserved. </div>
+                    <div class="col-md-6" align="right"> </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            function validate(e) {
+                //getting key code of pressed key
+                var keycode = (e.which) ? e.which : e.keyCode;
+                //var phn = document.getElementById('textarea');
+                //
+                //comparing pressed keycodes
+                if ((keycode < 48 || keycode > 57) && keycode !== 13 && keycode !== 8 && keycode !== 46 && keycode !== 37 && keycode !== 39) {
+                    e.preventDefault();
+                    console.log("FAIL");
+                    return false;
+                } else {
+                    console.log("OK!");
+                }
+            }
+        </script>
+    </body>
+</html>

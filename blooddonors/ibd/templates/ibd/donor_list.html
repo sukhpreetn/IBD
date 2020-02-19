@@ -1,0 +1,14 @@
+
+<h2> Donors List</h2>
+{% if donor_list %}
+    <ul>
+    {% for donor in donor_list %}
+        <li>{{ donor.donor_name }}</a></li>
+        <li>{{ donor.donor_email }}</a></li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Donors are available.</p>
+{% endif %}
+

@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Indian Blood Donors</title>
+        <link href="http://www.indianblooddonors.com/images/fav.png" rel="shortcut icon">
+
+        <!-- Bootstrap -->
+        <link href="http://www.indianblooddonors.com/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="http://www.indianblooddonors.com/fonts/css/font-awesome.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+        <link href="http://www.indianblooddonors.com/css/mystyle.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://www.indianblooddonors.com/styles.css">
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <script src="http://www.indianblooddonors.com/script.js"></script>
+        <script src="http://www.indianblooddonors.com/js/crawler.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container-fluid bg">
+            <div class="container shadow bg1">
+                <div class="row topbg">
+                    <div class="col-md-6"> Need Blood? Call: 07966772377 </div>
+                    <div class="col-md-6" align="right"> Download our Apps to Contact Donors </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"> <img src="http://www.indianblooddonors.com/images/logo.png" class="img-responsive"  alt=""/> </div>
+                    <div class="col-md-6" align="right">
+                        <ul class="list-inline" style="padding-top:25px">
+                            <li><i class="fa fa-apple fa-2x" style="color:#000"></i></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=com.ibd.blooddonorapp&hl=en" target="_blank"><i class="fa fa-android fa-2x" style="color:#090"></i></a></li>
+                            <li><i class="fa fa-windows fa-2x"  style="color:#39F"></i></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="row menubg">
+                    <div class="col-md-12">
+                        <div id='cssmenu'>
+                            <ul>
+                                <li  ><a href='/'>Home</a></li>
+                                <li ><a href="{% url 'login' %}">Donors Login</a></li>
+                                <li><a href="{% url 'ibd:unsubscribe' %}">Unsubscribe</a></li>
+                                <li><a href="{% url 'ibd:forgetpwd' %}">Forgot Password</a></li>
+                                <li ><a href="{% url 'ibd:poster' %}">Paste our Posters</a></li>>
+                                <li><a href="{% url 'ibd:privacypolicy' %}">Privacy Policy</a></li>
+                                <li><a href='https://www.facebook.com/IndianBloodDonors'>Facebook</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+<link href="css/content_css.css" rel="stylesheet" type="text/css">
+ <script language="javascript" type="text/javascript">
+function getXMLHTTP() { //fuction to return the xml http object
+        var xmlhttp=false;
+        try{
+            xmlhttp=new XMLHttpRequest();
+        }
+        catch(e)	{
+            try{
+                xmlhttp= new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch(e){
+                try{
+                    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                catch(e1){
+                    xmlhttp=false;
+                }
+            }
+        }
+
+        return xmlhttp;
+    }
+
+ function getcity() {
+
+        var state = document.form3.state.value;
+
+        var strURL="ajex_city_register.php?state="+state;
+
+        var req = getXMLHTTP();
+        if (req) {
+            req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                    // only if "OK"
+            if (req.status == 200) {
+                 document.getElementById('citydiv').innerHTML=req.responseText;
+            } else {
+             alert("There was a problem while using XMLHTTP:\n" + req.statusText);
+             }
+           }
+         }
+           req.open("GET", strURL, true);
+            req.send(null);
+        }
+    }
+ </script>
+
+
+
+<style type="text/css">
+    <!--
+    .style1 {color: #FF0000}
+    -->
+</style>
+<tr height="30">
+      <td class=heading > <p>Sign Up</td>
+
+</td>
+</tr>
+<tr>
+    <td><table cellspacing="0" cellpadding="5" border="0" align="center" width="100%">
+            <tbody>
+                <tr>
+                    <td align="center" valign="center"><link rel="stylesheet" href="Calendar/skins/aqua/theme.css" type="text/css" />
+            <script language="javascript" type="text/javascript" src="Calendar/calendar.js"></script>
+            <script language="javascript" type="text/javascript" src="Calendar/lang/calendar-en.js"></script>
+            <script language="javascript" type="text/javascript" src="Calendar/mscal.js"></script>
+            <script language="JavaScript" type="text/javascript" src="js/jquery-1.4.1.min.js" ></script>
+            <script language="JavaScript" type="text/javascript">
+                function getPage() {
+
+                    //generate the parameter for the php script
+                    var data = 'id=' + document.form3.city_id.value;
+
+                    //alert(data);
+                    $.ajax({
+                        url: "request.php",
+                        type: "GET",
+                        data: data,
+                        cache: true,
+                        success: function (html) {
+
+
+                            //add the content retrieved from ajax and put it in the #content div
+                            $('#stdcode_id').val(html);
+
+
+                        }
+                    });
+                }
+            </script>
+
+
+
+            <script language="JavaScript" type="text/javascript" >
+                function validation_regester(){
+                    var Full_Name = document.getElementById('Full_Name');
+                  //  var city_id = document.getElementById('city_id');
+                    var Pincode = document.getElementById('Pincode');
+                  //  var Date_of_Birth1 = document.getElementById('Date_of_Birth');
+                    // var Mobile_Number = document.getElementById('Mobile_Number');
+                    var Blood_Group = document.getElementById('Blood_Group');
+
+
+
+                    /* if(Full_Name.value=='')
+                {
+                    alert('Please insert Full Name');
+                    return false;
+                }*/
+                    /*  else if(city_id.value=='0')
+                {
+                    alert('Please insert City Name');
+                    return false;
+                }*/
+                    /* if(Pincode.value=='')
+               {
+                    alert('Please insert Pincode');
+                    return false;
+                }
+                else if(Date_of_Birth1.value=='')
+                {
+                    alert('Please insert Date of Birth');
+                    return false;
+                }*/
+                    /* else if(Mobile_Number.value=='')
+                {
+                    alert('Please insert Mobile Number');
+                    return false;
+                }*/
+                    if(Email.value=='')
+                    {
+                        alert('Please insert Email Address');
+                        return false;
+                    }
+
+
+
+                    else if(Blood_Group.value=='0')
+                    {
+                        alert('Please insert Blood Group');
+                        return false;
+                    }else if(Email.value!='')
+                    {
+                        var emailfilter=/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i
+                        var e =Email;
+                        var returnval=emailfilter.test(e.value)
+                        if (returnval==false){
+                            alert("Please enter a valid email address.")
+                            e.select()
+                            return false;
+                            //return returnval
+                        }
+                    }
+                    else{
+
+                        return true;
+                    }
+                }
+                function makedisable(){
+
+                    if(document.form3.donation.disabled != true){
+                        document.form3.donation.disabled = true;
+                        document.form3.cal2.style.visibility = "hidden";
+                        document.form3.donation.value='';
+
+                    }else{
+                        document.form3.donation.disabled = false;
+                        //document.form3.chk.value='0';
+                          document.form3.cal2.style.visibility = "";
+                         document.form3.donation.value='';
+
+                    }
+                    }
+            </script>
+            <script  type="text/javascript" >
+                function isNumberKey(evt)
+                {
+
+                    var charCode = (evt.which) ? evt.which : event.keyCode
+                    if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                    return false;
+                return true;
+            }
+            </script>
+            <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                <tbody>
+
+                    <tr>
+
+                        <td align="center" width="100%" valign="center" colspan="100%">
+                            <form id="form" name="form" method="post" action="/registersucess/">{%  csrf_token %}
+                                <table width="100%" border="0" align="center"  >
+                                    <tr><td colspan="100%" align="center" style="color: black;font-size: 13px;font-family:arial" >
+                                            " If you wish to Donate Platelets to Cancer Patients Sign up on <a href="http://www.Plateletdonors.org">www.Plateletdonors.org</a>
+                                        </td></tr>
+                                </table>
+                                <table width="100%" border="0" align="center"  >
+
+
+
+                                        <tr>
+                                            <td colspan="100%" align="center" class="error_message"></td>
+                                        </tr>
+                                    <tr>
+                                        <td align="right" class="bodytext_bold"><font color="red">*</font> Full Name :</td>
+                                        <td class="navText"><label>
+                                                <input type="text" name="Full_Name" id="Full_Name" value="" class="bodytext_bold" size="25"/>
+                                            </label>                          </td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><span class="bodytext_bold"><font color="red">*</font>Blood Group :</span>  </td>
+                                        <td class="navText"><select name="Blood_Group" id="Blood_Group" class="bodytext_bold" >
+                                                <option value="0">-- Select Blood Group --</option>
+                                                                                                                            <option value="A +ve" >A +ve</option>
+                                                                                                                                                                                               <option value="A -ve" >A -ve</option>
+                                                                                                                                                                                               <option value="B +ve" Selected>B +ve</option>
+                                                                                                                                                                                               <option value="B -ve" >B -ve</option>
+                                                                                                                                                                                               <option value="AB +ve" >AB +ve</option>
+                                                                                                                                                                                               <option value="AB -ve" >AB -ve</option>
+                                                                                                                                                                                               <option value="A1 +ve" >A1 +ve</option>
+                                                                                                                                                                                               <option value="A1 -ve" >A1 -ve</option>
+                                                                                                                                                                                               <option value="A2 +ve" >A2 +ve</option>
+                                                                                                                                                                                               <option value="A2 -ve" >A2 -ve</option>
+                                                                                                                                                                                               <option value="A1B +ve" >A1B +ve</option>
+                                                                                                                                                                                               <option value="A1B -ve" >A1B -ve</option>
+                                                                                                                                                                                               <option value="A2B +ve" >A2B +ve</option>
+                                                                                                                                                                                               <option value="A2B -ve" >A2B -ve</option>
+                                                                                                                                                                                               <option value="O +ve" >O +ve</option>
+                                                                                                                                                                                               <option value="O -ve" >O -ve</option>
+                                                                                                               </select></td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>
+                                   <!-- <tr>
+                                        <td align="right"><span class="bodytext_bold"> <font color="red">*</font> Date of Birth : </span></td>
+                                        <td class="navText"><input type="text" id="Date_of_Birth" name="Date_of_Birth"   class="bodytext_bold" maxlength="11" value="" size="25" /><img src="Calendar/Cal1.jpg" onclick="showCalendar('Date_of_Birth','%d-%m-%Y','12');" /> </td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>-->
+
+
+                               <!-- <tr>
+                                <td class="page_content1" align="right"><span class="bodytext_bold"><font color="red">*</font>
+                                        State :</span>
+                                </td>
+                                <td>
+                                 <select name="state" class="bodytext_bold"  onChange="getcity(this.value)">                                  <option value="0">--Select State--</option>
+                                 <br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in <b>/home/u2277025/public_html/register.php</b> on line <b>430</b><br />
+                                 </select>  </td><td> &nbsp;<span class="error_message"></span>
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                               <td align="right"><span class="bodytext_bold"> <font color="red">*</font> City : </span></td>
+                                <td class="navText"><label>
+                                 <div id="citydiv">
+                                 <select name="city_id"  class="bodytext_bold" onChange="getPage();">                                 <option value="0">--Select City--</option>
+                                <br />
+<b>Warning</b>:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in <b>/home/u2277025/public_html/register.php</b> on line <b>444</b><br />
+
+                                </select>
+                                </div>
+                                    </label></td><td>&nbsp;<span class="error_message"></span></td>
+
+                                </tr>
+                               <tr>
+                                        <td align="right"><span class="bodytext_bold">STD Code </span></td>
+                                        <td class="navText"><input type="text" name="stdcode_id" id="stdcode_id" value="324" readonly="readonly" class="bodytext_bold" size="25" /></td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>-->
+                              <tr>
+                                        <td align="right"><span class="bodytext_bold"><font color="red">*</font> STD Code: </span></td>
+                                        <td class="navText"><input type="text" size="8" name="stdcode_id" id="stdcode_id"  value=""  class="bodytext_bold" size="25" /></td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><span class="bodytext_bold">Postal Pincode  </span></td>
+                                        <td class="navText"><input type="text" name="Pincode" id="Pincode" value=""  size="25" class="bodytext_bold" onkeypress="return isNumberKey(event)" maxlength="6"/></td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right"> <span class="bodytext_bold"><font color="red">*</font> Mobile Number : </span></td>
+                                        <td class="navText"><input type="text" name="ext" id="ext" value="+91" readonly="readonly" size="3"/><input type="text" name="Mobile_Number" id="Mobile_Number" value="" size="19" class="bodytext_bold" size="13" maxlength="10" onkeypress="return isNumberKey(event)" /></td>
+                                        <td class="error_message"><span class="style1">Please provide correct mobile number</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right"><span class="bodytext_bold"> <font color="red">*</font> Email Address : </span></td>
+                                        <td class="navText"><input type="text" name="Email" id="Email" value="" size="25" class="bodytext_bold"/></td>
+                                        <td class="error_message"><span class="style1"></span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="right"><span class="bodytext_bold"> <font color="red">*</font> Password : </span></td>
+                                        <td class="navText"><input type="password" name="pwd" id="pwd" value="" size="25" class="bodytext_bold"/></td>
+                                                           <td class="error_message"><span class="style1"></span></td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td align="right"><span class="bodytext_bold"><font color="red">*</font> Confirm Password : </span></td>
+                                                           <td class="navText"><input type="password" name="cpwd" id="cpwd" value="" size="25" class="bodytext_bold"/></td>
+                                                           <td class="error_message"><span class="style1"></span></td>
+                                                       </tr>
+                                                      <!-- <tr>
+                                                           <td align="right"><span class="bodytext_bold"> <font color="red">*</font> Date of Last Blood Donation : </span></td>
+                                                           <td class="navText"><input type="text" name="donation" id="donation" value=""  size="25" class="bodytext_bold" /><img src="Calendar/Cal1.jpg" onclick="showCalendar('donation','%d-%m-%Y','12');" id="cal2" /> </td>
+                                                           <td class="error_message"><span class="style1"></span></td>
+                                                       </tr>-->
+                                                       <!--<tr>
+                                                           <td>&nbsp;
+                                                           </td>
+                                                           <td><input type="checkbox" name="chk" id="chk" value="1"  onchange="makedisable();"/><span class="bodytext_bold">Never Donated</span></td>
+                                    </tr>-->
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center">
+                                                <label>
+                                                    <input type="submit" name="REGISTER" value="Register"  class="button" />
+                                                </label>
+                                                <input type="button" name="Submit2" value="Reset" onclick="window.location=''" class="btn btn-danger"/>
+
+
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <!--<tr><td colspan="100%" align="center">OR
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="100%" align="center" class="bodytext_bold">SMS BLOOD < space >STD Code < space > Blood Group to 09665500000
+                                                <br/>Example : Blood 022 B+ve
+                                        </td>
+                                    </tr>-->
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td align="center" colspan="100%" class="bodytext_bold"> Already a registered donor? <a href="login.php">Sign-in here</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form></td>
+                    </tr>
+                </tbody>
+            </table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<div class="row ftopbg" style="line-height:1.8; text-align:justify; color:#ABADAE">
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>TECHNOLOGY PARTNERS</strong></p>
+                        <p> <a href="https://www.awaaz.de/" target="_blank">Awaaz De</a></p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>CONNECTIONS MADE</strong></p>
+
+                        <p>12442 Blood Donors Registered</p>
+                        <p>152143 Request Served Till Date</p>
+                        <p>949 Connections made in last 30 Days</p>
+                        <p>5 Donors Consented to Donate</p>
+                        <p>4 Donors Refused to Donate</p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>OUR OTHER INITIATIVES</strong></p>
+                        <!--<p>Privacy Policy</p>
+                        <p> Terms &amp; Conditions</p>
+                        <p> Disclaimer</p>
+                        <p> Cancellation &amp; Refund</p>
+                        <p> Others</p>
+                        --><p><a target="_blank" href='http://Plateletdonors.org'>Platelet Donors</a></p>
+                        <p><a target="_blank" href="http://www.sevakitchen.org">Seva Kitchen</a></p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="font-size:16px; color:#ccc"><strong>CONTACT US</strong></p>
+                        <p><strong>Address:</strong></p>
+                        <p> Indian Blood Donors <br>
+                            127, New Colony,<br>
+                            Nagpur - 440001,<br>
+                            Maharashtra (India). </p>
+                        <p><strong>Email-id:</strong> info@indianblooddonors.com</p>
+                    </div>
+                </div>
+                <div class="row fbottompbg" style="color:#666">
+                    <div class="col-md-6"> &copy 2020  Indian Blood Donors. All right reserved. </div>
+                    <div class="col-md-6" align="right"> </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            function validate(e) {
+                //getting key code of pressed key
+                var keycode = (e.which) ? e.which : e.keyCode;
+                //var phn = document.getElementById('textarea');
+                //
+                //comparing pressed keycodes
+                if ((keycode < 48 || keycode > 57) && keycode !== 13 && keycode !== 8 && keycode !== 46 && keycode !== 37 && keycode !== 39) {
+                    e.preventDefault();
+                    console.log("FAIL");
+                    return false;
+                } else {
+                    console.log("OK!");
+                }
+            }
+        </script>
+    </body>
+</html>

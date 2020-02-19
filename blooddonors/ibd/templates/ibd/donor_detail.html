@@ -1,0 +1,8 @@
+<h1>Donor Details</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action>
+    Name          :  {{ donor.donor_name }}<p>
+    donor_email   :  {{ donor.donor_email }}<p>
+</form>

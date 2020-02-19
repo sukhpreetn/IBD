@@ -1,0 +1,12 @@
+<h1>Task Details</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action>
+    Name          :  {{ donor.donor_name }}<p>
+    Blood Group   :  {{ donor.blood_group }}<p>
+    Std Code      :  {{ donor.std }}<p>
+    Zip Code      :  {{ donor.zip }}<p>
+    Phone         :  {{ donor.phone }}<p>
+    Email         :  {{ donor.email }}<p>
+</form>
